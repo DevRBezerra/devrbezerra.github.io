@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfólio Pessoal</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700&display=swap">
+  <style>
+    body {
+      font-family: 'Open Sans', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #212121; /* Fundo escuro */
+    }
+    .header {
+      background-color: #333;
+      color: #fff;
+      padding: 20px;
+      text-align: center;
+    }
+    .header h1 {
+      color: #f4fb2f;
+      margin: 0;
+    }
+    .nav {
+      background-color: #444;
+      padding: 10px;
+      text-align: center;
+    }
+    .nav button {
+      background-color: #666;
+      border: none;
+      border-radius: 5px;
+      color: #fff;
+      cursor: pointer;
+      font-size: 16px;
+      margin: 10px;
+      padding: 10px 20px;
+    }
+    .nav button:hover {
+      background-color: #777;
+    }
+    #conteudo {
+      padding: 20px;
+    }
+  </style>
+</head>
+<body>
+  <header class="header">
+    <h1>Minha Biografia</h1> 
+  </header>
+  <nav class="nav">
+    <a href=/><button>Home</button></a>
+    <button id="portf">Portfólio</button>
+    <button id="sobre">Sobre</button>
+    <button id="apresentacao">Apresentação</button>
+    <button id="contato">Contato</button>
+  </nav>
+  <div id="conteudo"></div>
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script> // script que carrega as paginas dentro da index
+    $(document).ready(function(){      
+      $('#portf').click(function() {
+        $('#conteudo').load('portf.html');
+      });
+      $('#sobre').click(function() {
+        $('#conteudo').load('sobre.html');
+      });
+      $('#apresentacao').click(function() {
+        $('#conteudo').load('apresentacao.html');
+      });
+      $('#contato').click(function() {
+        $('#conteudo').load('contato.html');
+      });
+    });
+  </script>
+</body>
+</html>
