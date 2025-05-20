@@ -4,11 +4,11 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Renan Coder</title>
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="https://kit.fontawesome.com/a2e8d0339c.js" crossorigin="anonymous"></script>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/basiclightbox@5.0.4/dist/basicLightbox.min.css">
-
 
   <style>
     .active {
@@ -22,7 +22,7 @@
 
   <!-- Header -->
   <header class="bg-zinc-950 py-6 flex flex-col items-start justify-start text-left space-y-2 px-6">
-  <img src="logo-renan-coder-large.png" alt="Logo Renan Coder" class="h-64" />
+    <img src="logo-renan-coder-large.png" alt="Logo Renan Coder" class="h-64" />
   </header>
 
   <!-- Quem sou -->
@@ -53,8 +53,8 @@
       <div class="col-span-1">
         <h2 class="text-3xl font-bold mb-8 text-white">Experiências<span class="text-red-500">.</span></h2>
         <ul class="space-y-4 text-white font-semibold" id="empresaList">
-          <li onclick="mostrarExperiencia('fab')" class="cursor-pointer active">Força Aérea Brasileira</li>
-          <li onclick="mostrarExperiencia('imperio')" class="cursor-pointer">Imperio Dos Doces</li>
+          <li onclick="mostrarExperiencia('fab', event)" class="cursor-pointer hover:text-red-500 transition active">Força Aérea Brasileira</li>
+          <li onclick="mostrarExperiencia('imperio', event)" class="cursor-pointer hover:text-red-500 transition">Imperio Dos Doces</li>
         </ul>
       </div>
       <div class="col-span-3" id="conteudoExperiencia">
@@ -71,9 +71,9 @@
       <div class="col-span-1">
         <h2 class="text-3xl font-bold mb-8 text-white">Cursos<span class="text-red-500">.</span></h2>
         <ul class="space-y-4 text-white font-semibold" id="cursoList">
-          <li onclick="mostrarCurso('sos')" class="cursor-pointer active">S.O.S COMPUTADORES</li>
-          <li onclick="mostrarCurso('dio')" class="cursor-pointer">DIO</li>
-          <li onclick="mostrarCurso('sest')" class="cursor-pointer">SEST SENAT</li>
+          <li onclick="mostrarCurso('sos', event)" class="cursor-pointer hover:text-red-500 transition active">S.O.S COMPUTADORES</li>
+          <li onclick="mostrarCurso('dio', event)" class="cursor-pointer hover:text-red-500 transition">DIO</li>
+          <li onclick="mostrarCurso('sest', event)" class="cursor-pointer hover:text-red-500 transition">SEST SENAT</li>
         </ul>
       </div>
       <div class="col-span-3" id="conteudoCurso">
@@ -86,13 +86,13 @@
 
   <!-- Projetos -->
   <section id="projetos" class="bg-zinc-800 py-16 px-6">
-    <div class="max-w-6xl mx-auto grid md:grid-cols-4 gap-6 items-center">
+    <div class="max-w-6xl mx-auto grid md:grid-cols-4 gap-6 items-start">
       <div class="col-span-1">
         <h2 class="text-3xl font-bold mb-8 text-white">Projetos<span class="text-red-500">.</span></h2>
         <ul class="space-y-4 text-white font-semibold" id="projetoList">
-          <li onclick="mostrarProjeto('hackintosh')" class="cursor-pointer active">Hackintosh</li>
-          <li onclick="mostrarProjeto('sislog')" class="cursor-pointer">Sistema de Login + Controle</li>
-          <li onclick="mostrarProjeto('siskot')" class="cursor-pointer">Sistema de Login em Kotlin</li>
+          <li onclick="mostrarProjeto('hackintosh', event)" class="cursor-pointer hover:text-red-500 transition active">Hackintosh</li>
+          <li onclick="mostrarProjeto('sislog', event)" class="cursor-pointer hover:text-red-500 transition">Sistema de Login + Controle</li>
+          <li onclick="mostrarProjeto('siskot', event)" class="cursor-pointer hover:text-red-500 transition">Sistema de Login em Kotlin</li>
         </ul>
       </div>
       <div class="col-span-3" id="conteudoProjeto">
@@ -104,45 +104,44 @@
   </section>
 
   <!-- Contato -->
-<section class="bg-[#0A0A1F] py-12 px-6 text-white">
-  <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-8">
-    <!-- Texto -->
-    <div>
-      <h2 class="text-3xl font-bold mb-2">Conhecimentos<span class="text-red-500">.</span></h2>
-      <p class="text-zinc-400 mb-4 italic">*Ainda Estou Estudando sobre as linguagens ao lado mas são as que atuo no momento, buscando um melhor conhecimento dentre elas !!!*</p>
-    </div>
+  <section class="bg-[#0A0A1F] py-12 px-6 text-white">
+    <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-8">
+      <!-- Texto -->
+      <div>
+        <h2 class="text-3xl font-bold mb-2">Conhecimentos<span class="text-red-500">.</span></h2>
+        <p class="text-zinc-400 mb-4 italic">*Ainda Estou Estudando sobre as linguagens ao lado mas são as que atuo no momento, buscando um melhor conhecimento dentre elas !!!*</p>
+      </div>
 
-    <!-- Grid de Cards -->
-    <div class="grid grid-cols-4 gap-4">
-      <!-- Card -->
-      <div class="group bg-zinc-900 rounded-lg p-6 flex items-center justify-center hover:bg-red-600 transition duration-300">
-        <span class="text-red-400 group-hover:text-white font-semibold">Java</span>
-      </div>
-      <div class="group bg-zinc-900 rounded-lg p-6 flex items-center justify-center hover:bg-red-600 transition duration-300">
-        <span class="text-red-400 group-hover:text-white font-semibold">JavaScript</span>
-      </div>
-      <div class="group bg-zinc-900 rounded-lg p-6 flex items-center justify-center hover:bg-red-600 transition duration-300">
-        <span class="text-red-400 group-hover:text-white font-semibold">SpringBoot</span>
-      </div>
-      <div class="group bg-zinc-900 rounded-lg p-6 flex items-center justify-center hover:bg-red-600 transition duration-300">
-        <span class="text-red-400 group-hover:text-white font-semibold">Node.js</span>
-      </div>
-      <div class="group bg-zinc-900 rounded-lg p-6 flex items-center justify-center hover:bg-red-600 transition duration-300">
-        <span class="text-red-400 group-hover:text-white font-semibold">Python</span>
-      </div>
-      <div class="group bg-zinc-900 rounded-lg p-6 flex items-center justify-center hover:bg-red-600 transition duration-300">
-        <span class="text-red-400 group-hover:text-white font-semibold">Cybersecurity</span>
-      </div>
-      <div class="group bg-zinc-900 rounded-lg p-6 flex items-center justify-center hover:bg-red-600 transition duration-300">
-        <span class="text-red-400 group-hover:text-white font-semibold">PHP</span>
-      </div>
-      <div class="group bg-zinc-900 rounded-lg p-6 flex items-center justify-center hover:bg-red-600 transition duration-300">
-        <span class="text-red-400 group-hover:text-white font-semibold">Kotlin</span>
+      <!-- Grid de Cards -->
+      <div class="grid grid-cols-4 gap-4">
+        <!-- Card -->
+        <div class="group bg-zinc-900 rounded-lg p-6 flex items-center justify-center hover:bg-red-600 transition duration-300">
+          <span class="text-red-400 group-hover:text-white font-semibold">Java</span>
+        </div>
+        <div class="group bg-zinc-900 rounded-lg p-6 flex items-center justify-center hover:bg-red-600 transition duration-300">
+          <span class="text-red-400 group-hover:text-white font-semibold">JavaScript</span>
+        </div>
+        <div class="group bg-zinc-900 rounded-lg p-6 flex items-center justify-center hover:bg-red-600 transition duration-300">
+          <span class="text-red-400 group-hover:text-white font-semibold">SpringBoot</span>
+        </div>
+        <div class="group bg-zinc-900 rounded-lg p-6 flex items-center justify-center hover:bg-red-600 transition duration-300">
+          <span class="text-red-400 group-hover:text-white font-semibold">Node.js</span>
+        </div>
+        <div class="group bg-zinc-900 rounded-lg p-6 flex items-center justify-center hover:bg-red-600 transition duration-300">
+          <span class="text-red-400 group-hover:text-white font-semibold">Python</span>
+        </div>
+        <div class="group bg-zinc-900 rounded-lg p-6 flex items-center justify-center hover:bg-red-600 transition duration-300">
+          <span class="text-red-400 group-hover:text-white font-semibold">Cybersecurity</span>
+        </div>
+        <div class="group bg-zinc-900 rounded-lg p-6 flex items-center justify-center hover:bg-red-600 transition duration-300">
+          <span class="text-red-400 group-hover:text-white font-semibold">PHP</span>
+        </div>
+        <div class="group bg-zinc-900 rounded-lg p-6 flex items-center justify-center hover:bg-red-600 transition duration-300">
+          <span class="text-red-400 group-hover:text-white font-semibold">Kotlin</span>
+        </div>
       </div>
     </div>
-  </div>
-</section>
-
+  </section>
 
   <!-- Rodapé -->
   <footer class="text-center p-6 text-zinc-500 text-sm bg-zinc-950">
@@ -150,7 +149,7 @@
   </footer>
 
   <!-- Scripts -->
-   <script src="https://cdn.jsdelivr.net/npm/basiclightbox@5.0.4/dist/basicLightbox.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/basiclightbox@5.0.4/dist/basicLightbox.min.js"></script>
   <script>
     const experiencias = {
       fab: {
@@ -184,70 +183,71 @@
     };
 
     const projetos = {
-  hackintosh: {
-    cargo: "Hackintosh Big Sur 11.2.1 ( X99 F8 + Xeon E5 2678 v3 + RX 5700 XT MSI)  com Water cooler custom",
-    periodo: "Montado por mim",
-    video: "/hackintosh.mp4"
-  },
-  sislog: {
-    cargo: "Sistema de Login em Php + Controle de Pedidos + Controle de Validade + WebView para rodar como app no Android",
-    periodo: "2025 - Concluido",
-    imagens: [
-      "validade-php/1.jpg",
-      "validade-php/2.jpg",
-      "validade-php/3.jpg",
-      "validade-php/4.jpg",
-      "validade-php/5.jpg",
-      "validade-php/6.jpg",
-      "validade-php/7.jpg",
-      "validade-php/8.jpg"
-    ]
-  },
-  siskot: {
-    cargo: "Sistema de Login + Controle de Pedidos + Controle de Validade em kotlin",
-    periodo: "2025 - Em Desenvolvimento",
-    imagens: [
-      "validade-kotlin/1.png",
-      "validade-kotlin/2.png",
-      "validade-kotlin/3.png",
-      "validade-kotlin/4.png",
-      "validade-kotlin/5.png",
-      "validade-kotlin/6.png",
-      "validade-kotlin/7.png"
-    ]
-  }
-};
+      hackintosh: {
+        cargo: "Hackintosh Big Sur 11.2.1 ( X99 F8 + Xeon E5 2678 v3 + RX 5700 XT MSI) com Water cooler custom",
+        periodo: "Montado por mim",
+        video: "/hackintosh.mp4"
+      },
+      sislog: {
+        cargo: "Sistema de Login em Php + Controle de Pedidos + Controle de Validade + WebView para rodar como app no Android",
+        periodo: "2025 - Concluido",
+        imagens: [
+          "validade-php/1.jpg",
+          "validade-php/2.jpg",
+          "validade-php/3.jpg",
+          "validade-php/4.jpg",
+          "validade-php/5.jpg",
+          "validade-php/6.jpg",
+          "validade-php/7.jpg",
+          "validade-php/8.jpg"
+        ]
+      },
+      siskot: {
+        cargo: "Sistema de Login + Controle de Pedidos + Controle de Validade em kotlin",
+        periodo: "2025 - Em Desenvolvimento",
+        imagens: [
+          "validade-kotlin/1.png",
+          "validade-kotlin/2.png",
+          "validade-kotlin/3.png",
+          "validade-kotlin/4.png",
+          "validade-kotlin/5.png",
+          "validade-kotlin/6.png",
+          "validade-kotlin/7.png"
+        ]
+      }
+    };
 
-
-
-    function marcarAtivo(id, event) {
-      const lista = document.getElementById(id).children;
-      for (let item of lista) item.classList.remove("active");
-      event.target.classList.add("active");
+    function marcarAtivo(listId, element) {
+      // Remove a classe 'active' de todos os itens da lista
+      const lista = document.getElementById(listId).children;
+      for (let item of lista) {
+        item.classList.remove("active");
+      }
+      // Adiciona a classe 'active' apenas ao item clicado
+      element.classList.add("active");
     }
 
-    // Atualizar chamadas para passar o `event`
-    function mostrarExperiencia(chave) {
+    function mostrarExperiencia(chave, event) {
       const data = experiencias[chave];
       document.getElementById("conteudoExperiencia").innerHTML = `
         <h3 class="text-xl font-bold text-white mb-1">${data.cargo}</h3>
         <span class="text-zinc-400 block mb-4">${data.periodo}</span>
         <p class="text-zinc-300">${data.descricao}</p>
       `;
-      marcarAtivo("empresaList", event);
+      marcarAtivo("empresaList", event.target);
     }
 
-    function mostrarCurso(chave) {
+    function mostrarCurso(chave, event) {
       const data = cursos[chave];
       document.getElementById("conteudoCurso").innerHTML = `
         <h3 class="text-xl font-bold text-white mb-1">${data.cargo}</h3>
         <span class="text-zinc-400 block mb-4">${data.periodo}</span>
         <p class="text-zinc-300">${data.descricao}</p>
       `;
-      marcarAtivo("cursoList", event);
+      marcarAtivo("cursoList", event.target);
     }
 
-    function mostrarProjeto(chave) {
+    function mostrarProjeto(chave, event) {
       const data = projetos[chave];
       let conteudo = `
         <h3 class="text-xl font-bold text-white mb-1">${data.cargo}</h3>
@@ -269,64 +269,85 @@
           </video>
         `;
       } else if (data.imagens && data.imagens.length > 0) {
-        conteudo += `<div class="flex gap-4 overflow-x-auto" id="galeriaProjetos">`;
+        conteudo += `
+          <div class="mb-4">
+            <p class="text-zinc-300 mb-2">Clique em qualquer imagem para ampliar</p>
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4" id="galeriaProjetos">
+        `;
+        
         data.imagens.forEach((imgSrc, index) => {
           conteudo += `
-            <img 
-              src="${imgSrc}" 
-              alt="Imagem ${index + 1} de ${data.cargo}" 
-              class="rounded-lg shadow-md object-cover w-48 h-48 flex-shrink-0 cursor-pointer"
-              loading="lazy"
-              data-index="${index}"
-            >
+            <div class="relative group cursor-pointer">
+              <img 
+                src="${imgSrc}" 
+                alt="Imagem ${index + 1} de ${data.cargo}" 
+                class="w-full h-48 object-cover rounded-lg shadow-md transition-transform duration-300 group-hover:scale-105"
+                loading="lazy"
+                data-index="${index}"
+              >
+              <div class="absolute inset-0 bg-black bg-opacity-30 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-lg">
+                <i class="fas fa-search-plus text-white text-2xl"></i>
+              </div>
+            </div>
           `;
         });
-        conteudo += `</div>`;
+        
+        conteudo += `</div></div>`;
       } else {
         conteudo += `<p class="text-zinc-400">Nenhuma mídia disponível para este projeto.</p>`;
       }
 
       document.getElementById("conteudoProjeto").innerHTML = conteudo;
-      marcarAtivo("projetoList", event);
+      marcarAtivo("projetoList", event.target);
 
+      // Configura o lightbox para as imagens
       if (data.imagens && data.imagens.length > 0) {
         const imgs = document.querySelectorAll("#galeriaProjetos img");
-        let currentIndex = 0;
-
+        
         function createLightboxContent(index) {
           return `
             <div style="position: relative; max-width: 90vw; max-height: 90vh;">
-              <img src="${data.imagens[index]}" style="width: 100%; height: auto; display: block; margin: 0 auto; border-radius: 8px;">
-              <button id="btnPrev" style="position: absolute; top: 50%; left: 0; transform: translateY(-50%); background: rgba(0,0,0,0.5); border: none; color: white; font-size: 2rem; padding: 0 12px; cursor: pointer; border-radius: 0 5px 5px 0;">&lt;</button>
-              <button id="btnNext" style="position: absolute; top: 50%; right: 0; transform: translateY(-50%); background: rgba(0,0,0,0.5); border: none; color: white; font-size: 2rem; padding: 0 12px; cursor: pointer; border-radius: 5px 0 0 5px;">&gt;</button>
-              <button id="btnClose" style="position: absolute; top: 10px; right: 10px; background: rgba(0,0,0,0.5); border: none; color: white; font-size: 1.5rem; padding: 5px 10px; cursor: pointer; border-radius: 5px;">×</button>
+              <img src="${data.imagens[index]}" style="max-width: 100%; max-height: 80vh; display: block; margin: 0 auto; border-radius: 8px;">
+              <div style="position: absolute; bottom: 20px; left: 0; right: 0; text-align: center; color: white; background: rgba(0,0,0,0.5); padding: 5px; border-radius: 5px;">
+                Imagem ${index + 1} de ${data.imagens.length}
+              </div>
+              <button id="btnPrev" style="position: absolute; top: 50%; left: 10px; transform: translateY(-50%); background: rgba(0,0,0,0.5); border: none; color: white; font-size: 2rem; padding: 5px 15px; cursor: pointer; border-radius: 5px;">&lt;</button>
+              <button id="btnNext" style="position: absolute; top: 50%; right: 10px; transform: translateY(-50%); background: rgba(0,0,0,0.5); border: none; color: white; font-size: 2rem; padding: 5px 15px; cursor: pointer; border-radius: 5px;">&gt;</button>
+              <button id="btnClose" style="position: absolute; top: 10px; right: 10px; background: rgba(0,0,0,0.5); border: none; color: white; font-size: 1.5rem; padding: 5px 15px; cursor: pointer; border-radius: 5px;">×</button>
             </div>
           `;
         }
 
         let instance;
+        let currentIndex = 0;
 
         function showLightbox(index) {
           currentIndex = index;
           instance = basicLightbox.create(createLightboxContent(currentIndex), {
             onShow: (instance) => {
+              // Configura os botões de navegação
               document.getElementById("btnPrev").onclick = () => {
                 currentIndex = (currentIndex - 1 + data.imagens.length) % data.imagens.length;
-                instance.element().querySelector('img').src = data.imagens[currentIndex];
+                instance.element().innerHTML = createLightboxContent(currentIndex);
               };
+              
               document.getElementById("btnNext").onclick = () => {
                 currentIndex = (currentIndex + 1) % data.imagens.length;
-                instance.element().querySelector('img').src = data.imagens[currentIndex];
+                instance.element().innerHTML = createLightboxContent(currentIndex);
               };
+              
               document.getElementById("btnClose").onclick = () => {
                 instance.close();
               };
+              
+              // Adiciona navegação por teclado
               window.addEventListener("keydown", onKeyDown);
             },
             onClose: () => {
               window.removeEventListener("keydown", onKeyDown);
             }
           });
+          
           instance.show();
 
           function onKeyDown(e) {
@@ -336,8 +357,11 @@
           }
         }
 
+        // Adiciona o evento de clique para cada imagem
         imgs.forEach((img, i) => {
-          img.addEventListener("click", () => showLightbox(i));
+          img.addEventListener("click", () => {
+            showLightbox(i);
+          });
         });
       }
     }
