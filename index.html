@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Renan Coder</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://kit.fontawesome.com/a2e8d0339c.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/basiclightbox@5.0.4/dist/basicLightbox.min.css">
+
+
+  <style>
+    .active {
+      border-left: 3px solid #ef4444;
+      padding-left: 0.5rem;
+      color: #ef4444;
+    }
+  </style>
+</head>
+<body class="bg-zinc-900 text-white font-sans">
+
+  <!-- Header -->
+  <header class="bg-zinc-950 py-6 flex flex-col items-start justify-start text-left space-y-2 px-6">
+  <img src="logo-renan-coder-large.png" alt="Logo Renan Coder" class="h-64" />
+  </header>
+
+  <!-- Quem sou -->
+  <section id="sobre" class="max-w-6xl mx-auto py-16 px-6 grid md:grid-cols-2 gap-8 items-center">
+    <div class="flex justify-center">
+      <img src="/programar.png" alt="Avatar" class="w-full max-w-xl rounded-xl shadow-lg" />
+    </div>
+    <div>
+      <h2 class="text-3xl font-bold text-red-500 mb-2">Quem sou</h2>
+      <h3 class="text-xl font-semibold mb-2">Renan Bezerra</h3>
+      <h5 class="text-zinc-300 mb-4">ADS Student | Java | JavaScript | SpringBoot | Node.js | Python | Cybersecurity | PHP | Kotlin</h5>
+      <p class="text-zinc-300 mb-4">
+        Meu nome é Renan Bezerra, sou estudante de Análise e Desenvolvimento de Sistemas na Uninter, atualmente estou no 3º semestre. No momento, ainda não estou trabalhando na área.
+        Mas desde minha adolescência venho estudando e mexendo com programação & Hacking Ético. Desde que comecei minha faculdade, dei um foco maior nos códigos. Também gosto de montagem e manutenção de computadores. Meu objetivo no futuro é ser um <span style="color: #ef4444;">DEV Full Stack</span>.
+      </p>
+      <div class="flex space-x-4 mt-4">
+        <a href="https://www.instagram.com/rnbezerra_dev/" target="_blank"><i class="fab fa-instagram text-2xl text-pink-500"></i></a>
+        <a href="https://www.linkedin.com/in/renan-silvestre-6614b6208/" target="_blank"><i class="fab fa-linkedin text-2xl text-blue-500"></i></a>
+        <a href="https://github.com/DevRBezerra" target="_blank"><i class="fab fa-github text-2xl text-white"></i></a>
+        <a href="https://wa.me/+5513991689139" target="_blank"><i class="fab fa-whatsapp text-2xl text-green-500"></i></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Experiências -->
+  <section id="experiencias" class="bg-zinc-800 py-16 px-6">
+    <div class="max-w-6xl mx-auto grid md:grid-cols-4 gap-6 items-center">
+      <div class="col-span-1">
+        <h2 class="text-3xl font-bold mb-8 text-white">Experiências<span class="text-red-500">.</span></h2>
+        <ul class="space-y-4 text-white font-semibold" id="empresaList">
+          <li onclick="mostrarExperiencia('fab')" class="cursor-pointer active">Força Aérea Brasileira</li>
+          <li onclick="mostrarExperiencia('imperio')" class="cursor-pointer">Imperio Dos Doces</li>
+        </ul>
+      </div>
+      <div class="col-span-3" id="conteudoExperiencia">
+        <h3 class="text-xl font-bold text-white mb-1">Soldado</h3>
+        <span class="text-zinc-400 block mb-4">Fev 2017 – Fev 2021</span>
+        <p class="text-zinc-300">Trabalhei como sentinela, após um tempo ingressei na Força de Reação Rápida, e também no serviço fazia a função de monitoramento por câmeras e diversas outras funções como atendimento ao público, manutenção das instalações, etc.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Cursos -->
+  <section id="cursos" class="bg-zinc-900 py-16 px-6">
+    <div class="max-w-6xl mx-auto grid md:grid-cols-4 gap-6 items-center">
+      <div class="col-span-1">
+        <h2 class="text-3xl font-bold mb-8 text-white">Cursos<span class="text-red-500">.</span></h2>
+        <ul class="space-y-4 text-white font-semibold" id="cursoList">
+          <li onclick="mostrarCurso('sos')" class="cursor-pointer active">S.O.S COMPUTADORES</li>
+          <li onclick="mostrarCurso('dio')" class="cursor-pointer">DIO</li>
+          <li onclick="mostrarCurso('sest')" class="cursor-pointer">SEST SENAT</li>
+        </ul>
+      </div>
+      <div class="col-span-3" id="conteudoCurso">
+        <h3 class="text-xl font-bold text-white mb-1">Montagem e Manutenção de Computadores</h3>
+        <span class="text-zinc-400 block mb-4">2012 – Concluido</span>
+        <p class="text-zinc-300">Curso completo de Montagem e Manutenção de Computadores, foi meu primeiro contato com Hardware</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projetos -->
+  <section id="projetos" class="bg-zinc-800 py-16 px-6">
+    <div class="max-w-6xl mx-auto grid md:grid-cols-4 gap-6 items-center">
+      <div class="col-span-1">
+        <h2 class="text-3xl font-bold mb-8 text-white">Projetos<span class="text-red-500">.</span></h2>
+        <ul class="space-y-4 text-white font-semibold" id="projetoList">
+          <li onclick="mostrarProjeto('hackintosh')" class="cursor-pointer active">Hackintosh</li>
+          <li onclick="mostrarProjeto('sislog')" class="cursor-pointer">Sistema de Login + Controle</li>
+          <li onclick="mostrarProjeto('siskot')" class="cursor-pointer">Sistema de Login em Kotlin</li>
+        </ul>
+      </div>
+      <div class="col-span-3" id="conteudoProjeto">
+        <h3 class="text-xl font-bold text-white mb-1">Portfólio Pessoal</h3>
+        <span class="text-zinc-400 block mb-4">2025</span>
+        <p class="text-zinc-300">Projeto desenvolvido com HTML, TailwindCSS e JavaScript. Hospedado no GitHub Pages como site pessoal. Clique nas categorias ao lado para navegar !!!</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contato -->
+<section class="bg-[#0A0A1F] py-12 px-6 text-white">
+  <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-8">
+    <!-- Texto -->
+    <div>
+      <h2 class="text-3xl font-bold mb-2">Conhecimentos<span class="text-red-500">.</span></h2>
+      <p class="text-zinc-400 mb-4 italic">*Ainda Estou Estudando sobre as linguagens ao lado mas são as que atuo no momento, buscando um melhor conhecimento dentre elas !!!*</p>
+    </div>
+
+    <!-- Grid de Cards -->
+    <div class="grid grid-cols-4 gap-4">
+      <!-- Card -->
+      <div class="group bg-zinc-900 rounded-lg p-6 flex items-center justify-center hover:bg-red-600 transition duration-300">
+        <span class="text-red-400 group-hover:text-white font-semibold">Java</span>
+      </div>
+      <div class="group bg-zinc-900 rounded-lg p-6 flex items-center justify-center hover:bg-red-600 transition duration-300">
+        <span class="text-red-400 group-hover:text-white font-semibold">JavaScript</span>
+      </div>
+      <div class="group bg-zinc-900 rounded-lg p-6 flex items-center justify-center hover:bg-red-600 transition duration-300">
+        <span class="text-red-400 group-hover:text-white font-semibold">SpringBoot</span>
+      </div>
+      <div class="group bg-zinc-900 rounded-lg p-6 flex items-center justify-center hover:bg-red-600 transition duration-300">
+        <span class="text-red-400 group-hover:text-white font-semibold">Node.js</span>
+      </div>
+      <div class="group bg-zinc-900 rounded-lg p-6 flex items-center justify-center hover:bg-red-600 transition duration-300">
+        <span class="text-red-400 group-hover:text-white font-semibold">Python</span>
+      </div>
+      <div class="group bg-zinc-900 rounded-lg p-6 flex items-center justify-center hover:bg-red-600 transition duration-300">
+        <span class="text-red-400 group-hover:text-white font-semibold">Cybersecurity</span>
+      </div>
+      <div class="group bg-zinc-900 rounded-lg p-6 flex items-center justify-center hover:bg-red-600 transition duration-300">
+        <span class="text-red-400 group-hover:text-white font-semibold">PHP</span>
+      </div>
+      <div class="group bg-zinc-900 rounded-lg p-6 flex items-center justify-center hover:bg-red-600 transition duration-300">
+        <span class="text-red-400 group-hover:text-white font-semibold">Kotlin</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+  <!-- Rodapé -->
+  <footer class="text-center p-6 text-zinc-500 text-sm bg-zinc-950">
+    © 2025 Renan Coder. Todos os direitos reservados.
+  </footer>
+
+  <!-- Scripts -->
+   <script src="https://cdn.jsdelivr.net/npm/basiclightbox@5.0.4/dist/basicLightbox.min.js"></script>
+  <script>
+    const experiencias = {
+      fab: {
+        cargo: "Soldado",
+        periodo: "Fev 2017 – Fev 2021",
+        descricao: "Trabalhei como sentinela, após um tempo ingressei na Força de Reação Rápida, e também no serviço fazia a função de monitoramento por câmeras e diversas outras funções como atendimento ao público, manutenção das instalações, etc."
+      },
+      imperio: {
+        cargo: "Atendente de balcão",
+        periodo: "Mar 2022 – Atualmente (3 Anos)",
+        descricao: "Atuo na reposição da loja, faço entrada de notas, lançamento de boletos e faturamento de notas, atuo também na reposição do estoque, confiro mercadorias que chegam na loja e também que saem para entrega. Quando o gerente não se encontra, eu que fico no lugar dele, fazendo a função de (SUBGERENTE). Faço pedidos de compras quando necessário, caso necessário também faço função de caixa..."
+      },
+    };
+
+    const cursos = {
+      sos: {
+        cargo: "Montagem e Manutenção de Computadores",
+        periodo: "2012 – concluido",
+        descricao: "Curso completo de Montagem e Manutenção de Computadores, foi meu primeiro contato com Hardware"
+      },
+      dio: {
+        cargo: "BootCamps",
+        periodo: "2024 - Atualmente",
+        descricao: "Potência Tech iFood - Programação do Zero - DIO (Concluído)<br> Santander 2024 – Back end com Java - DIO (Concluído)<br> Santander - Bootcamp Cibersegurança #2 – DIO (Concluído)<br>Vivo - Python AI Back end Developer (Concluído)<br>"
+      },
+      sest: {
+        cargo: "Operador de empilhadeira",
+        periodo: "2025 – concluido",
+        descricao: "Curso de Operador de empilhadeira"
+      },
+    };
+
+    const projetos = {
+  hackintosh: {
+    cargo: "Hackintosh Big Sur 11.2.1 ( X99 F8 + Xeon E5 2678 v3 + RX 5700 XT MSI)  com Water cooler custom",
+    periodo: "Montado por mim",
+    video: "/hackintosh.mp4"
+  },
+  sislog: {
+    cargo: "Sistema de Login em Php + Controle de Pedidos + Controle de Validade + WebView para rodar como app no Android",
+    periodo: "2025 - Concluido",
+    imagens: [
+      "validade-php/1.jpg",
+      "validade-php/2.jpg",
+      "validade-php/3.jpg",
+      "validade-php/4.jpg",
+      "validade-php/5.jpg",
+      "validade-php/6.jpg",
+      "validade-php/7.jpg",
+      "validade-php/8.jpg"
+    ]
+  },
+  siskot: {
+    cargo: "Sistema de Login + Controle de Pedidos + Controle de Validade em kotlin",
+    periodo: "2025 - Em Desenvolvimento",
+    imagens: [
+      "validade-kotlin/1.png",
+      "validade-kotlin/2.png",
+      "validade-kotlin/3.png",
+      "validade-kotlin/4.png",
+      "validade-kotlin/5.png",
+      "validade-kotlin/6.png",
+      "validade-kotlin/7.png"
+    ]
+  }
+};
+
+
+
+    function marcarAtivo(id, event) {
+      const lista = document.getElementById(id).children;
+      for (let item of lista) item.classList.remove("active");
+      event.target.classList.add("active");
+    }
+
+    // Atualizar chamadas para passar o `event`
+    function mostrarExperiencia(chave) {
+      const data = experiencias[chave];
+      document.getElementById("conteudoExperiencia").innerHTML = `
+        <h3 class="text-xl font-bold text-white mb-1">${data.cargo}</h3>
+        <span class="text-zinc-400 block mb-4">${data.periodo}</span>
+        <p class="text-zinc-300">${data.descricao}</p>
+      `;
+      marcarAtivo("empresaList", event);
+    }
+
+    function mostrarCurso(chave) {
+      const data = cursos[chave];
+      document.getElementById("conteudoCurso").innerHTML = `
+        <h3 class="text-xl font-bold text-white mb-1">${data.cargo}</h3>
+        <span class="text-zinc-400 block mb-4">${data.periodo}</span>
+        <p class="text-zinc-300">${data.descricao}</p>
+      `;
+      marcarAtivo("cursoList", event);
+    }
+
+    function mostrarProjeto(chave) {
+      const data = projetos[chave];
+      let conteudo = `
+        <h3 class="text-xl font-bold text-white mb-1">${data.cargo}</h3>
+        <span class="text-zinc-400 block mb-4">${data.periodo}</span>
+      `;
+
+      if (data.video) {
+        conteudo += `
+          <video 
+            src="${data.video}" 
+            width="400" 
+            height="400" 
+            muted 
+            controls 
+            class="rounded-lg shadow-lg"
+            style="object-fit: contain;"
+          >
+            Seu navegador não suporta vídeo HTML5.
+          </video>
+        `;
+      } else if (data.imagens && data.imagens.length > 0) {
+        conteudo += `<div class="flex gap-4 overflow-x-auto" id="galeriaProjetos">`;
+        data.imagens.forEach((imgSrc, index) => {
+          conteudo += `
+            <img 
+              src="${imgSrc}" 
+              alt="Imagem ${index + 1} de ${data.cargo}" 
+              class="rounded-lg shadow-md object-cover w-48 h-48 flex-shrink-0 cursor-pointer"
+              loading="lazy"
+              data-index="${index}"
+            >
+          `;
+        });
+        conteudo += `</div>`;
+      } else {
+        conteudo += `<p class="text-zinc-400">Nenhuma mídia disponível para este projeto.</p>`;
+      }
+
+      document.getElementById("conteudoProjeto").innerHTML = conteudo;
+      marcarAtivo("projetoList", event);
+
+      if (data.imagens && data.imagens.length > 0) {
+        const imgs = document.querySelectorAll("#galeriaProjetos img");
+        let currentIndex = 0;
+
+        function createLightboxContent(index) {
+          return `
+            <div style="position: relative; max-width: 90vw; max-height: 90vh;">
+              <img src="${data.imagens[index]}" style="width: 100%; height: auto; display: block; margin: 0 auto; border-radius: 8px;">
+              <button id="btnPrev" style="position: absolute; top: 50%; left: 0; transform: translateY(-50%); background: rgba(0,0,0,0.5); border: none; color: white; font-size: 2rem; padding: 0 12px; cursor: pointer; border-radius: 0 5px 5px 0;">&lt;</button>
+              <button id="btnNext" style="position: absolute; top: 50%; right: 0; transform: translateY(-50%); background: rgba(0,0,0,0.5); border: none; color: white; font-size: 2rem; padding: 0 12px; cursor: pointer; border-radius: 5px 0 0 5px;">&gt;</button>
+              <button id="btnClose" style="position: absolute; top: 10px; right: 10px; background: rgba(0,0,0,0.5); border: none; color: white; font-size: 1.5rem; padding: 5px 10px; cursor: pointer; border-radius: 5px;">×</button>
+            </div>
+          `;
+        }
+
+        let instance;
+
+        function showLightbox(index) {
+          currentIndex = index;
+          instance = basicLightbox.create(createLightboxContent(currentIndex), {
+            onShow: (instance) => {
+              document.getElementById("btnPrev").onclick = () => {
+                currentIndex = (currentIndex - 1 + data.imagens.length) % data.imagens.length;
+                instance.element().querySelector('img').src = data.imagens[currentIndex];
+              };
+              document.getElementById("btnNext").onclick = () => {
+                currentIndex = (currentIndex + 1) % data.imagens.length;
+                instance.element().querySelector('img').src = data.imagens[currentIndex];
+              };
+              document.getElementById("btnClose").onclick = () => {
+                instance.close();
+              };
+              window.addEventListener("keydown", onKeyDown);
+            },
+            onClose: () => {
+              window.removeEventListener("keydown", onKeyDown);
+            }
+          });
+          instance.show();
+
+          function onKeyDown(e) {
+            if (e.key === "Escape") instance.close();
+            if (e.key === "ArrowLeft") document.getElementById("btnPrev").click();
+            if (e.key === "ArrowRight") document.getElementById("btnNext").click();
+          }
+        }
+
+        imgs.forEach((img, i) => {
+          img.addEventListener("click", () => showLightbox(i));
+        });
+      }
+    }
+  </script>
+</body>
+</html>
