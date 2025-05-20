@@ -181,7 +181,6 @@
         descricao: "Curso de Operador de empilhadeira"
       },
     };
-
     const projetos = {
       hackintosh: {
         cargo: "Hackintosh Big Sur 11.2.1 ( X99 F8 + Xeon E5 2678 v3 + RX 5700 XT MSI) com Water cooler custom",
@@ -201,8 +200,11 @@
           "validade-php/7.jpg",
           "validade-php/8.jpg"
         ]
+        
+        
       },
-      siskot: {
+      siskot: 
+      {
         cargo: "Sistema de Login + Controle de Pedidos + Controle de Validade em kotlin",
         periodo: "2025 - Em Desenvolvimento",
         imagens: [
@@ -248,123 +250,91 @@
     }
 
     function mostrarProjeto(chave, event) {
-      const data = projetos[chave];
-      let conteudo = `
-        <h3 class="text-xl font-bold text-white mb-1">${data.cargo}</h3>
-        <span class="text-zinc-400 block mb-4">${data.periodo}</span>
-      `;
+  const data = projetos[chave];
+  let conteudo = `
+    <h3 class="text-xl font-bold text-white mb-1">${data.cargo}</h3>
+    <span class="text-zinc-400 block mb-4">${data.periodo}</span>
+  `;
 
-      if (data.video) {
-        conteudo += `
-          <video 
-            src="${data.video}" 
-            width="400" 
-            height="400" 
-            muted 
-            controls 
-            class="rounded-lg shadow-lg"
-            style="object-fit: contain;"
-          >
-            Seu navegador não suporta vídeo HTML5.
-          </video>
-        `;
-      } else if (data.imagens && data.imagens.length > 0) {
-        conteudo += `
-          <div class="mb-4">
-            <p class="text-zinc-300 mb-2">Clique em qualquer imagem para ampliar</p>
-            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4" id="galeriaProjetos">
-        `;
-        
-        data.imagens.forEach((imgSrc, index) => {
-          conteudo += `
-            <div class="relative group cursor-pointer">
-              <img 
-                src="${imgSrc}" 
-                alt="Imagem ${index + 1} de ${data.cargo}" 
-                class="w-full h-48 object-cover rounded-lg shadow-md transition-transform duration-300 group-hover:scale-105"
-                loading="lazy"
-                data-index="${index}"
-              >
-              <div class="absolute inset-0 bg-black bg-opacity-30 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-lg">
-                <i class="fas fa-search-plus text-white text-2xl"></i>
-              </div>
-            </div>
-          `;
-        });
-        
-        conteudo += `</div></div>`;
-      } else {
-        conteudo += `<p class="text-zinc-400">Nenhuma mídia disponível para este projeto.</p>`;
-      }
+  if (data.video) {
+    conteudo += `<video src="${data.video}" controls muted class="w-full max-w-md mt-4 rounded-lg shadow-lg"></video>`;
+  } else if (data.imagens && data.imagens.length > 0) {
+    conteudo += `<div id="galeriaProjetos" class="grid grid-cols-2 sm:grid-cols-3 gap-4 mt-4">`;
+    data.imagens.forEach((imgSrc, index) => {
+      conteudo += `<img src="${imgSrc}" alt="Imagem ${index + 1}" data-index="${index}" class="h-40 object-cover w-full rounded-lg shadow-md cursor-pointer hover:opacity-80 transition" />`;
+    });
+    conteudo += `</div>`;
+  }
 
-      document.getElementById("conteudoProjeto").innerHTML = conteudo;
-      marcarAtivo("projetoList", event.target);
+  document.getElementById("conteudoProjeto").innerHTML = conteudo;
+  marcarAtivo("projetoList", event.target);
 
-      // Configura o lightbox para as imagens
-      if (data.imagens && data.imagens.length > 0) {
-        const imgs = document.querySelectorAll("#galeriaProjetos img");
-        
-        function createLightboxContent(index) {
-          return `
-            <div style="position: relative; max-width: 90vw; max-height: 90vh;">
-              <img src="${data.imagens[index]}" style="max-width: 100%; max-height: 80vh; display: block; margin: 0 auto; border-radius: 8px;">
-              <div style="position: absolute; bottom: 20px; left: 0; right: 0; text-align: center; color: white; background: rgba(0,0,0,0.5); padding: 5px; border-radius: 5px;">
-                Imagem ${index + 1} de ${data.imagens.length}
-              </div>
-              <button id="btnPrev" style="position: absolute; top: 50%; left: 10px; transform: translateY(-50%); background: rgba(0,0,0,0.5); border: none; color: white; font-size: 2rem; padding: 5px 15px; cursor: pointer; border-radius: 5px;">&lt;</button>
-              <button id="btnNext" style="position: absolute; top: 50%; right: 10px; transform: translateY(-50%); background: rgba(0,0,0,0.5); border: none; color: white; font-size: 2rem; padding: 5px 15px; cursor: pointer; border-radius: 5px;">&gt;</button>
-              <button id="btnClose" style="position: absolute; top: 10px; right: 10px; background: rgba(0,0,0,0.5); border: none; color: white; font-size: 1.5rem; padding: 5px 15px; cursor: pointer; border-radius: 5px;">×</button>
-            </div>
-          `;
-        }
+  if (data.imagens && data.imagens.length > 0) {
+    const imgs = document.querySelectorAll("#galeriaProjetos img");
+    imgs.forEach((img) => {
+      img.addEventListener("click", () => {
+        const index = parseInt(img.getAttribute("data-index"));
+        showLightbox(index, data.imagens);
+      });
+    });
+  }
 
-        let instance;
-        let currentIndex = 0;
+  function showLightbox(index, imagens) {
+    const lightbox = document.createElement("div");
+    lightbox.id = "lightbox";
+    lightbox.className = "fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center z-50";
 
-        function showLightbox(index) {
-          currentIndex = index;
-          instance = basicLightbox.create(createLightboxContent(currentIndex), {
-            onShow: (instance) => {
-              // Configura os botões de navegação
-              document.getElementById("btnPrev").onclick = () => {
-                currentIndex = (currentIndex - 1 + data.imagens.length) % data.imagens.length;
-                instance.element().innerHTML = createLightboxContent(currentIndex);
-              };
-              
-              document.getElementById("btnNext").onclick = () => {
-                currentIndex = (currentIndex + 1) % data.imagens.length;
-                instance.element().innerHTML = createLightboxContent(currentIndex);
-              };
-              
-              document.getElementById("btnClose").onclick = () => {
-                instance.close();
-              };
-              
-              // Adiciona navegação por teclado
-              window.addEventListener("keydown", onKeyDown);
-            },
-            onClose: () => {
-              window.removeEventListener("keydown", onKeyDown);
-            }
-          });
-          
-          instance.show();
+    // Fecha ao clicar fora do container
+    lightbox.addEventListener("click", () => {
+      document.body.removeChild(lightbox);
+    });
 
-          function onKeyDown(e) {
-            if (e.key === "Escape") instance.close();
-            if (e.key === "ArrowLeft") document.getElementById("btnPrev").click();
-            if (e.key === "ArrowRight") document.getElementById("btnNext").click();
-          }
-        }
+    const container = document.createElement("div");
+    container.className = "relative max-w-4xl max-h-[90vh] w-full p-4";
+    container.addEventListener("click", (e) => e.stopPropagation()); // Impede que clique na imagem/controles feche
 
-        // Adiciona o evento de clique para cada imagem
-        imgs.forEach((img, i) => {
-          img.addEventListener("click", () => {
-            showLightbox(i);
-          });
-        });
-      }
+    const img = document.createElement("img");
+    img.src = imagens[index];
+    img.className = "max-h-[80vh] w-full object-contain rounded-lg";
+
+    const btnClose = document.createElement("button");
+    btnClose.innerHTML = "&times;";
+    btnClose.className = "absolute top-2 right-4 text-white text-3xl font-bold hover:text-red-500";
+    btnClose.onclick = () => document.body.removeChild(lightbox);
+
+    const btnPrev = document.createElement("button");
+    btnPrev.textContent = "←";
+    btnPrev.className = "absolute left-2 top-1/2 transform -translate-y-1/2 text-white text-3xl font-bold hover:text-red-500";
+    btnPrev.onclick = (e) => {
+      e.stopPropagation();
+      const newIndex = (index - 1 + imagens.length) % imagens.length;
+      document.body.removeChild(lightbox);
+      showLightbox(newIndex, imagens);
+    };
+
+    const btnNext = document.createElement("button");
+    btnNext.textContent = "→";
+    btnNext.className = "absolute right-2 top-1/2 transform -translate-y-1/2 text-white text-3xl font-bold hover:text-red-500";
+    btnNext.onclick = (e) => {
+      e.stopPropagation();
+      const newIndex = (index + 1) % imagens.length;
+      document.body.removeChild(lightbox);
+      showLightbox(newIndex, imagens);
+    };
+
+    container.appendChild(img);
+    container.appendChild(btnClose);
+    if (imagens.length > 1) {
+      container.appendChild(btnPrev);
+      container.appendChild(btnNext);
     }
+
+    lightbox.appendChild(container);
+    document.body.appendChild(lightbox);
+  }
+}
+
+
   </script>
 </body>
 </html>
